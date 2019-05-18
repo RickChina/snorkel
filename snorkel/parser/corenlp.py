@@ -101,7 +101,7 @@ class StanfordCoreNLPServer(Parser):
         :param parser_directory: Manually specify parser directory
         :return:
         '''
-        loc = '-cp "{parser_directory}/*"'.format() if parser_directory else ''
+        loc = '-cp "{}/*"'.format(parser_directory) if parser_directory else ''
         cmd = 'java -Xmx%s %s edu.stanford.nlp.pipeline.StanfordCoreNLPServer --port %d --timeout %d --threads %d > /dev/null'
         cmd = [cmd % (self.java_xmx, loc, self.port, self.timeout, self.num_threads)]
 
